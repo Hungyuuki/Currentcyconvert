@@ -1,0 +1,69 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi tiền</title>
+</head>
+<body>
+<table bgcolor="aqua" border="1px" >
+    <tr align="center">
+        <td>
+            <label for="number">Amount</label>
+        </td>
+        <td>
+            <label for="from">From currency</label>
+        </td>
+        <td>
+            <label for="to">To currency</label>
+        </td>
+        <td>
+            <button  style="background-color: darkturquoise;
+                                border-radius: 5px"
+                     type="button"
+                     onclick="run()" >
+                Convert
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" id="number" min="0">
+        </td>
+        <td>
+            <select id="from">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select  id="to">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <textarea id="showResult" style="color: black" type="number" value="Result" min="0">Result</textarea>
+            <script>
+                function run() {
+                    /*khai báo biến*/
+                    let number = document.getElementById("number").value;
+                    let fromC = document.getElementById("from").value;
+                    let toC = document.getElementById("to").value;
+                    /*tính toán*/
+                    if(fromC === toC) {
+                        let result = number;
+                        document.getElementById("showResult").innerHTML = + result;
+                    } else if (fromC === "VND") {
+                        let result = number / 23000;
+                        document.getElementById("showResult").innerHTML = + result;
+                    } else {
+                        let result = number * 23000;
+                        document.getElementById("fromResult").innerHTML = + result;
+                    }
+                }
+            </script>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
